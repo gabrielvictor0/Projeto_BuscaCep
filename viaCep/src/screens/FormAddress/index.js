@@ -24,15 +24,10 @@ export function FormAddress() {
 
     return (
         <ContainerFormAddress>
-            <Header/>
+            <Header />
             <ScrollForm>
                 <ContainerForm>
-                    <BoxInput
-                        textLabel={"Cep"}
-                        placeholder={"Cep..."}
-                        keyType={"numeric"}
 
-                    />
 
                     <BoxInput
                         textLabel={"Logradouro"}
@@ -42,26 +37,33 @@ export function FormAddress() {
                     />
 
                     <BoxInput
-                        textLabel={"Bairro"}
-                        placeholder={"Bairro..."}
-
-                    />
-
-                    <BoxInput
                         textLabel={"Cidade"}
                         placeholder={"Cidade..."}
                         onChangeText={setCidade}
                         editable={true}
                     />
 
+                    <BoxInput
+                        textLabel={"Estado"}
+                        placeholder={"Logradouro..."}
+                        fieldWidth={67}
+                        onChangeText={setEstado}
+                        editable={true}
+                    />
+
+                    <BoxInput
+                        textLabel={"Cep"}
+                        placeholder={"Cep..."}
+                        keyType={"numeric"}
+
+                    />
+
                     <ContainerUf>
 
                         <BoxInput
-                            textLabel={"Estado"}
-                            placeholder={"Logradouro..."}
-                            fieldWidth={67}
-                            onChangeText={setEstado}
-                            editable={true}
+                            textLabel={"Bairro"}
+                            placeholder={"Bairro..."}
+
                         />
 
                         <BoxInput
