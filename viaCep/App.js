@@ -28,9 +28,9 @@ export default function App() {
       <Stack.Navigator initialRouteName='Home' screenOptions={{
           headerShown: false
         }} >
-        <Stack.Screen name='Home' component={HomeChoice}></Stack.Screen>
-        <Stack.Screen name='FormCep' component={FormCep}></Stack.Screen>
-        <Stack.Screen name='FormAddress' component={FormAddress}></Stack.Screen>
+        <Stack.Screen name='Home' component={HomeChoice}/>
+        <Stack.Screen name='FormCep' component={FormCep}/>
+        <Stack.Screen name='FormAddress' component={FormAddress}/>
       </Stack.Navigator>
     </NavigationContainer>
     // <ContainerApp>

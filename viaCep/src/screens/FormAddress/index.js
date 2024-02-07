@@ -11,13 +11,25 @@ export function FormAddress() {
 
     const [cidade, setCidade] = useState("");
 
-    const [estado, setEstado] = useState("");
+    const [uf, setUf] = useState("");
+
+    const [endereco, setEndereco] = useState([]);
+
+    const [cep, setCep] = useState({});
+    const [bairro, setBairro] = useState({});
 
     async function getAddress() {
         try {
 
-        } catch (error) {
+            const promise = await axios.get(`https://viacep.com.br/ws/${uf}/${cidade}/${logradouro}/json/` )
+            const objeto = await promise.data;
 
+            setEndereco(objeto)
+            setCep(endereco[0].cep)
+            setBairro(endereco[0].bairro)
+           
+        } catch (error) {
+            alert(error)
         }
     }
 
@@ -46,15 +58,16 @@ export function FormAddress() {
                     <BoxInput
                         textLabel={"Estado"}
                         placeholder={"Logradouro..."}
-                        fieldWidth={67}
-                        onChangeText={setEstado}
+                        onChangeText={setUf}
                         editable={true}
+                        onBlur={getAddress}
                     />
 
                     <BoxInput
                         textLabel={"Cep"}
                         placeholder={"Cep..."}
                         keyType={"numeric"}
+                        fieldValue={cep}
 
                     />
 
@@ -63,14 +76,15 @@ export function FormAddress() {
                         <BoxInput
                             textLabel={"Bairro"}
                             placeholder={"Bairro..."}
-
+                            fieldWidth={67}
+                            fieldValue={bairro}
+                            
                         />
 
                         <BoxInput
                             textLabel={"UF"}
                             placeholder={"UF"}
                             fieldWidth={25}
-
                         />
 
                     </ContainerUf>
